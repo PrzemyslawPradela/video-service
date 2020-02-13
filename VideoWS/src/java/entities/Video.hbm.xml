@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2020-02-13 19:43:26 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entities.Video" table="VIDEO" schema="ROOT" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="title" type="string">
+            <column name="TITLE" length="1024" not-null="true" />
+        </property>
+        <property name="video" type="blob">
+            <column name="VIDEO" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
