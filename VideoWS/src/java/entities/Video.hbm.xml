@@ -11,7 +11,7 @@
         <property name="title" type="string">
             <column name="TITLE" length="1024" not-null="true" />
         </property>
-        <property name="video" type="blob">
+        <property name="video" type="binary">
             <column name="VIDEO" not-null="true" />
         </property>
     </class>

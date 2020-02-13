@@ -1,8 +1,6 @@
 package ws;
 
 import entities.Video;
-import java.sql.Blob;
-import java.sql.SQLException;
 import java.util.Base64;
 import java.util.List;
 import javax.jws.Oneway;
@@ -60,16 +58,13 @@ public class VideoWebService {
             Query query = session.createQuery("from Video");
             List<Video> videos = query.list();
             for (Video video : videos) {
-                Blob blob = video.getVideo();
-                int blobLength = (int) blob.length();
-                byte[] blobAsBytes = blob.getBytes(1, blobLength);
-                blob.free();
-                String base64String = Base64.getEncoder().encodeToString(blobAsBytes);
+                byte[] bytes = video.getVideo();;
+                String base64String = Base64.getEncoder().encodeToString(bytes);
                 video.setVideoBase64String(base64String);
                 videosWithBase64Video.add(video);
             }
             tx.commit();
-        } catch (SQLException e) {
+        } catch (Exception e) {
         }
 
         return videosWithBase64Video;
