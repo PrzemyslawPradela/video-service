@@ -40,7 +40,7 @@
                             <a href="#" class="card-link" style="float: left">
                                 <i class="fa fa-edit fa-3x"></i>
                             </a>
-                            <a href="#" class="card-link">
+                            <a href="DownloadServlet?id=${video.id}" class="card-link">
                                 <i class="fa fa-download fa-3x"></i>
                             </a>
                             <a href="RemoveServlet?id=${video.id}" class="card-link" style="float: right">
