@@ -5,14 +5,14 @@
 <hibernate-mapping>
     <class name="entities.Video" table="VIDEO" schema="ROOT" optimistic-lock="version">
         <id name="id" type="int">
-            <column name="ID" />
-            <generator class="assigned" />
+            <column name="ID" not-null="true"/>
+            <generator class="identity" />
         </id>
         <property name="title" type="string">
-            <column name="TITLE" length="1024" />
+            <column name="TITLE" length="1024" not-null="true"/>
         </property>
         <property name="file" type="binary">
-            <column name="FILE" />
+            <column name="FILE" not-null="true"/>
         </property>
     </class>
 </hibernate-mapping>
