@@ -1,6 +1,7 @@
 package ws;
 
 import entities.Video;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 import javax.jws.Oneway;
@@ -15,12 +16,6 @@ import utils.HibernateUtil;
 @WebService(serviceName = "VideoWebService")
 public class VideoWebService {
 
-    private final Session session;
-
-    public VideoWebService() {
-        this.session = HibernateUtil.getSessionFactory().getCurrentSession();
-    }
-
     /**
      * Web service operation
      *
@@ -29,15 +24,21 @@ public class VideoWebService {
      */
     @WebMethod(operationName = "getVideoByID")
     public Video getVideoByID(@WebParam(name = "id") int id) {
-        Video video = null;
+        Video video = new Video();
+        Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
 
         try {
             tx = session.beginTransaction();
             Query query = session.createQuery("from Video as video where video.id=" + id);
             video = (Video) query.uniqueResult();
+            byte[] bytes = video.getFile();
+            String base64String = Base64.getEncoder().encodeToString(bytes);
+            video.setVideoBase64String(base64String);
             tx.commit();
         } catch (Exception e) {
+        } finally {
+            session.close();
         }
 
         return video;
@@ -50,7 +51,8 @@ public class VideoWebService {
      */
     @WebMethod(operationName = "getVideos")
     public List<Video> getVideos() {
-        List<Video> videosWithBase64Video = null;
+        List<Video> videosWithBase64Video = new ArrayList<>();
+        Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
 
         try {
@@ -58,13 +60,15 @@ public class VideoWebService {
             Query query = session.createQuery("from Video");
             List<Video> videos = query.list();
             for (Video video : videos) {
-                byte[] bytes = video.getVideo();;
+                byte[] bytes = video.getFile();
                 String base64String = Base64.getEncoder().encodeToString(bytes);
                 video.setVideoBase64String(base64String);
                 videosWithBase64Video.add(video);
             }
             tx.commit();
         } catch (Exception e) {
+        } finally {
+            session.close();
         }
 
         return videosWithBase64Video;
@@ -78,6 +82,7 @@ public class VideoWebService {
     @WebMethod(operationName = "addVideo")
     @Oneway
     public void addVideo(@WebParam(name = "video") Video video) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
 
         try {
@@ -85,6 +90,8 @@ public class VideoWebService {
             session.save(video);
             tx.commit();
         } catch (Exception e) {
+        } finally {
+            session.close();
         }
     }
 
@@ -96,6 +103,7 @@ public class VideoWebService {
     @WebMethod(operationName = "editVideo")
     @Oneway
     public void editVideo(@WebParam(name = "video") Video video) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
 
         try {
@@ -103,6 +111,8 @@ public class VideoWebService {
             session.update(video);
             tx.commit();
         } catch (Exception e) {
+        } finally {
+            session.close();
         }
     }
 
@@ -114,6 +124,7 @@ public class VideoWebService {
     @WebMethod(operationName = "removeVideoByID")
     @Oneway
     public void removeVideoByID(@WebParam(name = "id") int id) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
 
         try {
@@ -123,6 +134,8 @@ public class VideoWebService {
             session.delete(video);
             tx.commit();
         } catch (Exception e) {
+        } finally {
+            session.close();
         }
     }
 }
