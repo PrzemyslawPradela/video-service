@@ -22,7 +22,7 @@
                         <a class="nav-link" href="index.jsp"><i class="fa fa-home"></i> Strona główna <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#"><i class="fa fa-plus-square"></i> Dodaj film</a>
+                        <a class="nav-link" href="add.jsp"><i class="fa fa-plus-square"></i> Dodaj film</a>
                     </li>
                 </ul>
             </div>

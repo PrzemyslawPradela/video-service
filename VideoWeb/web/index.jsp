@@ -23,7 +23,7 @@
                         <a class="nav-link" href="index.jsp"><i class="fa fa-home"></i> Strona główna <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#"><i class="fa fa-plus-square"></i> Dodaj film</a>
+                        <a class="nav-link" href="add.jsp"><i class="fa fa-plus-square"></i> Dodaj film</a>
                     </li>
                 </ul>
             </div>
@@ -43,7 +43,7 @@
                             <a href="#" class="card-link">
                                 <i class="fa fa-download fa-3x"></i>
                             </a>
-                            <a href="#" class="card-link" style="float: right">
+                            <a href="RemoveServlet?id=${video.id}" class="card-link" style="float: right">
                                 <i class="fa fa-trash fa-3x"></i>
                             </a>
                         </div>
