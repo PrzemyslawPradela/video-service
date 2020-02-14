@@ -19,10 +19,10 @@
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.jsp"><i class="fa fa-home"></i> Strona główna <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="index.jsp"><i class="fa fa-home fa-lg"></i> Strona główna <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="add.jsp"><i class="fa fa-plus-square"></i> Dodaj film</a>
+                        <a class="nav-link" href="add.jsp"><i class="fa fa-plus-square fa-lg"></i> Dodaj film</a>
                     </li>
                 </ul>
             </div>
@@ -34,7 +34,7 @@
                 <input class="form-control mb-4" id="titleInput" maxlength="1024" name="title" onkeyup="success()" type="text">
                 <div class="input-group mb-4">
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroupFileAddon01"><i class="fa fa-film"></i></span>
+                        <span class="input-group-text" id="inputGroupFileAddon01"><i class="fa fa-film fa-lg"></i></span>
                     </div>
                     <div class="custom-file">
                         <input accept="video/mp4" aria-describedby="inputGroupFileAddon01" class="custom-file-input"
@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <div style="text-align: center">
-                    <button class="btn btn-primary" id="submit" type="submit" disabled><i class="fa fa-upload"></i> Dodaj</button>
+                    <button class="btn btn-primary" id="submit" type="submit" disabled><i class="fa fa-upload fa-lg"></i> Dodaj</button>
                 </div>
             </form>
         </div>

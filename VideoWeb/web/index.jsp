@@ -20,10 +20,10 @@
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.jsp"><i class="fa fa-home"></i> Strona główna <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="index.jsp"><i class="fa fa-home fa-lg"></i> Strona główna <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="add.jsp"><i class="fa fa-plus-square"></i> Dodaj film</a>
+                        <a class="nav-link" href="add.jsp"><i class="fa fa-plus-square fa-lg"></i> Dodaj film</a>
                     </li>
                 </ul>
             </div>
@@ -37,7 +37,7 @@
                         <h3 class="card-header" style="text-align: center">${video.title}</h3>
                         <video style="height: 200px; width: 100%; display: block;" src="data:video/mp4;base64,${video.videoBase64String}" controls></video>
                         <div class="card-body" style="text-align: center">
-                            <a href="#" class="card-link" style="float: left">
+                            <a href="UpdateServlet?id=${video.id}" class="card-link" style="float: left">
                                 <i class="fa fa-edit fa-3x"></i>
                             </a>
                             <a href="DownloadServlet?id=${video.id}" class="card-link">
