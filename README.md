@@ -9,6 +9,7 @@ Service with MP4 videos
 ## Technologies
 Project is created with:
 * Java EE version: 8
+* JavaServer Pages
 * Hibernate version: 4.3.1
 * Apache Commons IO version: 2.2
 * Apache Derby version: 10.14.2
